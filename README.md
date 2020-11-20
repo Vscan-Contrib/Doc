@@ -2,7 +2,7 @@
 
 ---
 
-Example [GitBook] website using GitLab Pages.
+Example [GitBook] website using GitLab Pages. test
 
 Learn more about GitLab Pages at https://pages.gitlab.io and the official
 documentation https://docs.gitlab.com/ce/user/project/pages/.
