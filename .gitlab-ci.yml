@@ -1,8 +1,3 @@
-update:
-  script: "execute-script-for-job1"
-
 build:
-  script:  "gitbook build . public"
+  script:  "gitbook build . public && cp -r public/* /var/www/html/"
  
-deploy:
-  script:  "cp -r public/* /var/www/html/"
