@@ -18,7 +18,6 @@ documentation https://docs.gitlab.com/ce/user/project/pages/.
 - [GitLab User or Group Pages](#gitlab-user-or-group-pages)
 - [Did you fork this project?](#did-you-fork-this-project)
 - [Troubleshooting](#troubleshooting)
-Biento
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## GitLab CI
