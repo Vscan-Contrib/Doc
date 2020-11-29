@@ -1,6 +1,3 @@
 build:
-  script:  "pwd && gitbook build . public"
-
-publish:
-  script:  "pwd && ls && cp -r public/* /var/www/html/"
+  script:  "gitbook build . public && cp -r public/* /var/www/html/"
  
