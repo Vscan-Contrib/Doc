@@ -1,8 +1,8 @@
 build FR version:
-  script:  "cd French && gitbook build . public && cp -r public/* /var/www/fr/"
+  script:  "cd French && gitbook build . public && cp -r public/* /var/www/fr/ && ./discord.sh --webhook-url=$WEBHOOK --text 'Successfully release French documentation on http://ghost.vscan.local'"
   
 build EN version:
-  script:  "cd English && gitbook build . public && cp -r public/* /var/www/en/"
+  script:  "cd English && gitbook build . public && cp -r public/* /var/www/en/ && ./discord.sh --webhook-url=$WEBHOOK --text 'Successfully release English documentation on http://ghost.vscan.local'"
 
 build index:
-  script:  "rm -rf FR EN && gitbook build . public && cp -r public/* /var/www/html/"
+  script:  "rm -rf FR EN && gitbook build . public && cp -r public/* /var/www/html/ && ./discord.sh --webhook-url=$WEBHOOK --text 'Successfully release french documentation on http://ghost.vscan.local'"
