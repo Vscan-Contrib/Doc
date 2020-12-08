@@ -1,5 +1,5 @@
 # Summary
 
-* [French](French/)
-* [English](English/)
+* [French](French/README.md)
+* [English](English/README.md)
 
