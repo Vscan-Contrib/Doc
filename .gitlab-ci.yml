@@ -1,3 +1,8 @@
-build:
-  script:  "gitbook build . public && cp -r public/* /var/www/html/"
- 
+build FR version:
+  script:  "cd FR gitbook build . public && cp -r public/* /var/www/fr/"
+  
+build EN version:
+  script:  "cd EN && gitbook build . public && cp -r public/* /var/www/en/"
+
+build index:
+  script:  "rm -rf FR EN && gitbook build . public && cp -r public/* /var/www/html/"
