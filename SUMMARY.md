@@ -1,5 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
-* [Install](INSTALL.md)
+* [French](French/)
+* [English](English/)
 
