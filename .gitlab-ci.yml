@@ -1,5 +1,5 @@
 build FR version:
-  script:  "cd French && gitbook build . public && cp -r public/* /var/www/fr/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Successfully release French documentation on http://ghost.vscan.local'"
+  script:  "cd French && gitbook build . public && cp -r public/* /var/www/fr/ && ~/captainhook.sh fr"
   
 build EN version:
   script:  "cd English && gitbook build . public && cp -r public/* /var/www/en/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Successfully release English documentation on http://ghost.vscan.local'"
