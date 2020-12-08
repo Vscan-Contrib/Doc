@@ -1,5 +1,5 @@
 # Summary
 
-* [French](French/README.md)
-* [English](English/README.md)
+* [French](http://fr.ghost.vscan.local)
+* [English](http://en.ghost.vscan.local)
 
