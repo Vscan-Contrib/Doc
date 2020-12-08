@@ -1,5 +1,5 @@
 build FR version:
-  script:  "cd French gitbook build . public && cp -r public/* /var/www/fr/"
+  script:  "cd French && gitbook build . public && cp -r public/* /var/www/fr/"
   
 build EN version:
   script:  "cd English && gitbook build . public && cp -r public/* /var/www/en/"
