@@ -1,8 +1,16 @@
-build FR version:
+stages:
+  - Release FR version
+  - Release EN version
+  - Release index
+
+Release FR version:
+  stage: Release FR version
   script:  "cd French && gitbook build . public && cp -r public/* /var/www/fr/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Releasing [1/2]'"
   
-build EN version:
+Release EN version:
+  stage: Release EN version
   script:  "cd English && gitbook build . public && cp -r public/* /var/www/en/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Releasing [2/2]'"
 
-build index:
+Release index:
+  stage: Release index
   script:  "rm -rf FR EN && gitbook build . public && cp -r public/* /var/www/html/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Successfully release documentation on http://ghost.vscan.local'"
