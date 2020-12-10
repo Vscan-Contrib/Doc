@@ -11,7 +11,7 @@ Cette procédure est la même pour toutes les distributions de types redhat like
 En tout premier lieux il vous faut installer epel :
 
 ```bash 
-yum install epel
+yum install epel-release
  ```
 
 Installer le serveur de dépôt de vscan :
