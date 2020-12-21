@@ -1,5 +1,5 @@
 # Installation
-Deux types d'installations sont possibles : 
+Trois types d'installations sont possibles : 
 
 * Via les paquets rpm.
 * Via les paquets deb.
@@ -7,8 +7,9 @@ Deux types d'installations sont possibles :
 
 ## Via les paquets rpms
  
-Cette procédure est la même pour toutes les distributions de types redhat likes.
-En tout premier lieux il vous faut installer epel :
+Cette procédure est la même pour toutes les distributions basées sur l'environnement RedHat.
+
+En tout premier lieux il vous faut installer le repository EPEL :
 
 ```bash 
 dnf install -y epel-release
@@ -17,7 +18,7 @@ dnf config-manager --set-enabled extras -y
 dnf config-manager --set-enabled PowerTools
  ```
 
-Installer le serveur de dépôt de vscan :
+Installer le serveur de dépôts de vscan :
 
 ```bash 
 curl -s https://packagecloud.io/install/repositories/Drasrax/vscan/script.rpm.sh | sudo bash
@@ -42,8 +43,7 @@ yum install mariadb-server
 Démarrer le service mariadb : 
 
 ```bash 
-systemctl start mariadb
-systemctl enable mariadb
+systemctl enable mariadb --now
 ``` 
 
 Configurer mariadb : 
@@ -52,13 +52,13 @@ Configurer mariadb :
 mysql_secure_installation
 ```
 
-Importer la base de donnée de vscan: 
+Importer la base de données de vscan: 
 
 ```bash
 mysql -u root -p << /opt/db/vscan.sql
 ```
 
-Configurer la base de donnée dans vscan : 
+Configurer la base de données dans vscan : 
 
 ```bash 
 vi /etc/vscan_server/server.conf
