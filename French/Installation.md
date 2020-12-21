@@ -11,7 +11,10 @@ Cette procédure est la même pour toutes les distributions de types redhat like
 En tout premier lieux il vous faut installer epel :
 
 ```bash 
-yum install epel-release
+dnf install -y epel-release
+dnf install -y 'dnf-command(config-manager)'
+dnf config-manager --set-enabled extras -y
+dnf config-manager --set-enabled PowerTools
  ```
 
 Installer le serveur de dépôt de vscan :
