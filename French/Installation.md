@@ -55,7 +55,7 @@ mysql_secure_installation
 Se connecter en root a la base de donnée : 
 
 ```
-mysql -u roo -p
+mysql -u root -p
 ```
 
 
