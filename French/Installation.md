@@ -15,7 +15,7 @@ En tout premier lieux il vous faut installer le repository EPEL :
 dnf install -y epel-release
 dnf install -y 'dnf-command(config-manager)'
 dnf config-manager --set-enabled extras -y
-dnf config-manager --set-enabled PowerTools
+dnf config-manager --set-enabled powertools
 ```
 
 Installer le serveur de dépôts de vscan :
