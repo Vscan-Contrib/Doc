@@ -44,6 +44,8 @@ Démarrer le service mariadb :
 
 ```bash 
 systemctl enable mariadb --now
+
+systemctl start mariadb
 ```
 
 Configurer mariadb : 
@@ -126,7 +128,8 @@ Pour des questions de sécurité il est fortement recomandé de supprimer  le re
 
 Pour ce faire tapez la commande suivante : 
 
-```rm -rf /opt/vscan/install
+```
+rm -rf /opt/vscan/install
 rm -rf /opt/vscan/install
 ```
 
