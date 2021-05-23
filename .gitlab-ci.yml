@@ -13,4 +13,4 @@ Release EN version:
 
 Release index:
   stage: Release index
-  script:  "rm -rf FR EN && gitbook build . public && cp -r public/* /var/www/html/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Successfully release documentation on http://ghost.vscan.local'"
+  script:  "cd html && cp -r * /var/www/html/ && ~/discord.sh-1.4/discord.sh --webhook-url=$WEBHOOK --text 'Successfully release documentation on http://ghost.vscan.local'"
