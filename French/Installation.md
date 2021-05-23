@@ -15,7 +15,7 @@ En tout premier lieux il vous faut installer le repository EPEL :
 dnf install -y epel-release
 dnf install -y 'dnf-command(config-manager)'
 dnf config-manager --set-enabled extras -y
-dnf config-manager --set-enabled PowerTools
+dnf config-manager --set-enabled powertools
 ```
 
 Installer le serveur de dépôts de vscan :
@@ -44,6 +44,8 @@ Démarrer le service mariadb :
 
 ```bash 
 systemctl enable mariadb --now
+
+systemctl start mariadb
 ```
 
 Configurer mariadb : 
@@ -126,7 +128,8 @@ Pour des questions de sécurité il est fortement recomandé de supprimer  le re
 
 Pour ce faire tapez la commande suivante : 
 
-```rm -rf /opt/vscan/install
+```
+rm -rf /opt/vscan/install
 rm -rf /opt/vscan/install
 ```
 
