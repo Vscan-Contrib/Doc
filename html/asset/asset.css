@@ -1,0 +1,95 @@
+
+.content{
+  background-color:transparant;
+  box-sizing:border-box;
+  left:50%;
+  padding:20px;
+  text-align:center;
+  top:35%;
+  transform:translate(-50%, -50%);
+  position: fixed;
+  bottom: 10px;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #3cb9ff 50%, #00162f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+@media only screen and (max-width:667px) { 
+	/* CSS rules here */
+.content {
+  background-color:transparant;
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin 0 10vmin 0;
+  text-align:center;
+  top:35%;
+  transform:translate(-50%, -50%);
+  position: fixed;
+  bottom: 10px;
+}
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+.btnfrgb {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  text-align: center;
+  line-height: 300% !important;
+  transition: all 0.3s;
+  position: relative;
+  display: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-decoration: none;
+  border: 2px solid white;
+  color: white;
+  overflow: hidden;
+}
+
+.btnfrgb:after {
+  transition: all 0.3s;
+  position: absolute;
+  content: '';
+  width: 400px;
+  height: 400px;
+  transform: rotate(20deg);
+  background: white;
+  top: -200px;
+  right: 105%;
+  z-index: -1;
+}
+
+
+.btnfrgb:hover {
+  background: white;
+  color: #000;
+}
+.btnfrgb:hover:after {
+  right: -20px;
+}
