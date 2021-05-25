@@ -2,8 +2,8 @@
 
 * [Install](Installation.md)
 * [Functions of vscan](Fonctions.md)
-* [Process de développement](Developement.md)
-* [Environnement de développement](devenv.md)
-* [ Créer un module](vscan_modules.md)
-* [Création d'une traduction](traductions.md)
-* [Créer une release](releasing.md)
+* [Development process](Developement.md)
+* [Development environment](devenv.md)
+* [Create a module](vscan_modules.md)
+* [Creating a translation](traductions.md)
+* [Create a release](releasing.md)
