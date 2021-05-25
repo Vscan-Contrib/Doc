@@ -1,5 +1,5 @@
 # Installation
-Trois types d'installations sont possibles :
+Trois types d'installations sont possibles : 
 
 * Via les paquets rpm.
 * Via les paquets deb.
@@ -11,7 +11,7 @@ Cette procédure est la même pour toutes les distributions basées sur l'enviro
 
 En tout premier lieux il vous faut installer le repository EPEL :
 
-```bash
+```bash 
 dnf install -y epel-release
 dnf install -y 'dnf-command(config-manager)'
 dnf config-manager --set-enabled extras -y
@@ -20,41 +20,41 @@ dnf config-manager --set-enabled powertools
 
 Installer le serveur de dépôts de vscan :
 
-```bash
+```bash 
 curl -s https://packagecloud.io/install/repositories/Drasrax/vscan/script.rpm.sh | sudo bash
 ```
 
 Votre version ainsi que votre distribution seront détectées par ce script.
 
-Installer vscan:
+Installer vscan: 
 
-Tapez la commande suivante :
+Tapez la commande suivante : 
 
-```bash
+```bash 
 yum install vscan vscan-server
 ```
 
-Installer mariadb :
+Installer mariadb : 
 
-```bash
-yum install mariadb-server
+```bash 
+yum install mariadb-server 
 ```
 
-Démarrer le service mariadb :
+Démarrer le service mariadb : 
 
-```bash
+```bash 
 systemctl enable mariadb --now
 
 systemctl start mariadb
 ```
 
-Configurer mariadb :
+Configurer mariadb : 
 
 ```bash
 mysql_secure_installation
 ```
 
-Se connecter en root a la base de donnée :
+Se connecter en root a la base de donnée : 
 
 ```
 mysql -u root -p
@@ -62,7 +62,7 @@ mysql -u root -p
 
 
 
-Créer la base de donnée :
+Créer la base de donnée : 
 
 ```
 mysql> CREATE DATABASE vscan;
@@ -70,7 +70,7 @@ mysql> CREATE DATABASE vscan;
 
 
 
-Créer l'utilisateur vscan et configuré son mot de passe :
+Créer l'utilisateur vscan et configuré son mot de passe : 
 
 ```
 mysql> CREATE USER 'vscan'@'localhost' IDENTIFIED WITH mysql_native_password BY 'my-strong-password-here';
@@ -78,19 +78,19 @@ mysql> CREATE USER 'vscan'@'localhost' IDENTIFIED WITH mysql_native_password BY 
 
 
 
-Donner les droits sur la base de donnée a l'utilisateur fraichement créer :
+Donner les droits sur la base de donnée a l'utilisateur fraichement créer : 
 
 ```
 mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON vscan.* TO 'vscan'@'localhost';
 ```
 
-Importer la base de données de vscan:
+Importer la base de données de vscan: 
 
 ```bash
 mysql -u root -p << /opt/vscan/db/vscan.sql
 ```
 
-#### Configurer la base de données dans vscan via le script :
+#### Configurer la base de données dans vscan via le script : 
 
 ```
 vscan-config
@@ -100,7 +100,7 @@ Vous aurez ainsi plusieurs étapes de configuration, la première est de créer 
 
 ![](img/vscan_installer1.png)
 
-La seconde vous demande si vous souhaitez utiliser une base de donnée mysql, la réponse est oui :
+La seconde vous demande si vous souhaitez utiliser une base de donnée mysql, la réponse est oui : 
 
 ![](img/vscan_installer2.png)
 
@@ -108,25 +108,25 @@ Maintenant l'installeur va vous demander l'url de la base de donnée, dans notre
 
 ![](img/vscan_installer3.png)
 
-Nous allons maintenant configuré l'utilisateur de la base de donnée précédement créer :
+Nous allons maintenant configuré l'utilisateur de la base de donnée précédement créer : 
 
 ![](img/vscan_installer4.png)
 
-Puis son mot de passe (celui renseigné lors de la création de l'utilisateur):
+Puis son mot de passe (celui renseigné lors de la création de l'utilisateur): 
 
 ![](img/vscan_installer5.png)
 
-Puis nous allons configuré le nom de la base de donnée :
+Puis nous allons configuré le nom de la base de donnée : 
 
 ![](img/vscan_installer6.png)
 
-Vous aurez ensuite ce message :
+Vous aurez ensuite ce message : 
 
 ![](img/vscan_installer7.png)
 
-Pour des questions de sécurité il est fortement recomandé de supprimer  le repertoire `install` dans `/opt/vscan` .
+Pour des questions de sécurité il est fortement recomandé de supprimer  le repertoire `install` dans `/opt/vscan` . 
 
-Pour ce faire tapez la commande suivante :
+Pour ce faire tapez la commande suivante : 
 
 ```
 rm -rf /opt/vscan/install
@@ -135,25 +135,25 @@ rm -rf /opt/vscan/install
 
 
 
-La base de donnée de vscan est configurée et prête a être utilisée !
+La base de donnée de vscan est configurée et prête a être utilisée ! 
 
-#### Configurer la base de données dans vscan via le fichier de configuration :
+#### Configurer la base de données dans vscan via le fichier de configuration : 
 
-```bash
-vi /etc/vscan/server.conf
+```bash 
+vi /etc/vscan_server/server.conf
 ```
 
 
 
-#### Tester vscan:
+#### Tester vscan: 
 
-Pour tester vscan tapez la commande suivante :
+Pour tester vscan tapez la commande suivante : 
 
 ```bash
 vscan
 ```
 
- En cas de succès voici ce que vous devriez voir :
+ En cas de succès voici ce que vous devriez voir : 
 
 ![](img/vscan_success.png)
 
@@ -161,9 +161,9 @@ vscan
 
 
 
-#### Configurer les mises à jour des CPE et des CVE :
+#### Configurer les mises à jour des CPE et des CVE : 
 
-Vscan dispose de son propre gestionnaire de taches, la syntaxe est exactement la même que pour une tach cron classique :
+Vscan dispose de son propre gestionnaire de taches, la syntaxe est exactement la même que pour une tach cron classique : 
 
 ```
 # .---------------- minute (0 - 59)
@@ -177,7 +177,7 @@ Vscan dispose de son propre gestionnaire de taches, la syntaxe est exactement la
 
 
 
-Vous êtes donc libre de la fréquence a laquelles celles-ci sont mises à jour, cependant les recommandations pour les mises à jours des CPE est celle-ci :
+Vous êtes donc libre de la fréquence a laquelles celles-ci sont mises à jour, cependant les recommandations pour les mises à jours des CPE est celle-ci : 
 
 ```
 CPE_CHECK = 00 3 * * *
@@ -187,7 +187,7 @@ C'est à dire tous les jours à 3 h du matin. Ceci est la fréquence a laquelle 
 
 
 
-Et pour les CVE :
+Et pour les CVE : 
 
 ```
 CVE_CHECK = * */4 * * *
@@ -199,9 +199,9 @@ C'est à dire toutes les 4 heures, ce temps peut être réduit au besoin afin de
 
 
 
-#### Démarrer le service :
+#### Démarrer le service : 
 
-pour démarrer le service il vous suffit de lancer la commande `systemctl` suivante :
+pour démarrer le service il vous suffit de lancer la commande `systemctl` suivante : 
 
 ```
 systemctl start vscan
@@ -209,7 +209,7 @@ systemctl start vscan
 
 
 
-Pour connaître le status du service :
+Pour connaître le status du service : 
 
 ```
 [root@trivium ~]# systemctl status vscan
@@ -239,46 +239,3 @@ janv. 10 22:38:43 trivium service.py[9948]: 2107
 
 ```
 
-### Configurer l'API (facultatif)
-
-Ouvrez le fichier suivant `/etc/vscan/server.conf`.
-
-```bash
-vi /etc/vscan/server.conf
-```
-
-En fin de fichier vous trouverez la section `API`.
-Completez le avec vos informations
-
-```
-[API]
-ADDRESS =
-PORT = 5000
-```
-
-Attention le port sera utilisé par le Dashboard si celui-ci est installé sur cette machine ou une autre.
-
-
-### Démarrer le service API
-
-pour démarrer le service il vous suffit de lancer la commande `systemctl` suivante :
-
-```
-systemctl start vscan-api
-```
-
-
-
-Pour connaître le status du service :
-
-```
-[root@trivium ~]# systemctl status vscan-api
-● vscan-api.service - API server of vscan
-   Loaded: loaded (/etc/systemd/system/vscan-api.service; enabled; vendor prese>
-   Active: active (running) since Thu 2021-05-20 22:00:23 UTC; 4 days ago
- Main PID: 166 (python3)
-    Tasks: 1 (limit: 26213)
-   Memory: 21.1M
-   CGroup: /system.slice/vscan-api.service
-           └─166 python3 /opt/vscan/api/init.py
-```
