@@ -248,7 +248,8 @@ vi /etc/vscan/server.conf
 ```
 
 En fin de fichier vous trouverez la section `API`.
-Completez le avec vos informations
+
+Completez-le avec vos informations
 
 ```
 [API]
