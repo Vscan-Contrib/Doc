@@ -1,74 +1,76 @@
-# Vscan Documentation 
+# Vscan Documentation
 
 ## Introduction
 
-Vscan est une suite de logiciels de sécurité, open source développée principalement en Python 3 compatible 3.8 et supérieur.
-Il est diffusé sous licence GPLv3
-Celui-ci s'appuie sur une base de données SQL et possède de nombreuses configurations et usages possibles.
+Vscan is an open source security software suite developed mainly in Python 3 compatible 3.8 and higher.
+It is released under the GPLv3 license.
+It is based on a SQL database and has many possible configurations and uses.
 
-## Présentation 
+## Présentation
 
-Vscan a pour mission de répondre a plusieurs besoins plus ou moins spécifiques. Il est conçu pour donner une certaine souplesse à son utilisation et être multi-plateforme.
-Il peut être utilisé de façon préventive, passive, ou être un élément de sécurité actif.
+Vscan's mission is to meet several more or less specific needs. It is designed to be flexible and multi-platform.
+It can be used as a preventive, passive, or active security element.
 
-## Composition 
+## Composition
 
-Vscan se compose de quatre grands logiciels distincts : 
-1. Le serveur de backend,
-2. Le serveur API,
-3. L'agent,
-4. L'interface web.
+Vscan consists of four main distinct software programs:
+1. The backend server,
+2. The API server,
+3. The agent,
+4. The web interface.
 
-### Le serveur de backend
-Le serveur de backend contient le moteur de vscan.
-Ce moteur a diverses fonctionnalités possibles détaillées dans la page "Fonctions" de cette documentation.
+### The backend server
+The backend server contains the vscan engine.
+This engine has various possible functionalities detailed in the "Functions" page of this documentation.
 
-Il a les rôles suivants : 
+It has the following roles:
 
-* Interaction avec la base de données.
-* Gestion des dictionnaires de références CPE ([voir ce lien](https://www.cert-ist.com/public/fr/SO_detail?code=CPE))
-* Gestion des remontées de failles logicielles, au niveau des systèmes d'exploitation ou encore matérielless ([voir ce lien](https://fr.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures))
-* Faire correspondance entre CVE et CPE pour avoir une base de données lisible.
-* Remontée des alertes de sécurité à la publication d'une faille.
-
-
-### Le serveur API
-
-Le serveur API est un composant optionnel, il n'est pas installé par défaut lors d'une installation de vscan via un paquet rpm.
-
-En effet, vous n'êtes pas obligé de mettre en place le serveur API lors d'une utilisation de vscan en mode passif/passif (voir ce mode plus bas).
-
-Le serveur API est obligatoire dans le cas ou vous utiliseriez les modes actif/actif et actif/passif ainsi que pour l'interface web.
-
-Il permet également une interaction via un logiciel tiers ou même via scripts. Il est donc très facile de personnaliser l'interface web de vscan ou de créer la vôtre (voir la documentation de l'api pour connaître les méthodes d'authentification et utilisation de celle-ci).
-
-# L'agent
-L'agent de vscan est également un composant optionnel, il est utilisé pour effectuer des interactions avec les machines gérées par vscan. 
-
-Le serveur API doit être installé pour le fonctionnement de l'agent.
-
-L'agent est obligatoire pour les fonctionnements en actif/actif et actif/passif.
+* Interaction with the database.
+* Management of CPE reference dictionaries ([see this link](https://www.cert-ist.com/public/fr/SO_detail?code=CPE))
+* Management of software, operating system and hardware vulnerabilities ([see this link](https://fr.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures))
+* Make correspondence between CVE and CPE to have a readable database.
+* Reporting of security alerts when a vulnerability is published.
 
 
-## Les modes de vscan
-Il peut être activé de trois manières différentes : 
 
-1. Mode actif/actif
-2. Mode actif/passif
-3. Mode passif/passif 
+### The API server
 
-### Le mode actif/actif
-Le mode actif/actif a plusieurs usages possibles. Lorsque ce mode est mis en place, il permet une remontée des logiciels installés sur la machine en question mais également d'effectuer un certain nombre d’interactions à distance sur les machines.
+The API server is an optional component, it is not installed by default when installing vscan via an rpm package.
 
-Ce mode permet, entre autres, de créer des procédures en fonction des machines pour mettre en place une mitigation en cas d'attaque ou de suspicion (isolement de la machine, désactivation de certains composants, fonctionnement en mode dégradés, etc.).
+Indeed, you are not obliged to install the API server when using vscan in passive/passive mode (see this mode below).
 
-Il peut également permettre le patching de machines (désactivé par défaut, dans ce mode il vous faudra l'activer et en aucun cas les patchs ne seront déployés de façon automatique). 
+The API server is mandatory in case you use the active/active and active/passive modes as well as for the web interface.
 
-### Le mode actif/passif
-Le mode actif/passif est un mode où seul le serveur est actif, l'agent remonte l'OS, les logiciels et le matériel installés mais ne peut intervenir sur la machine en question. 
-Il permet au serveur de maintenir une liste de logiciels et leurs versions sur des environnement donnés. Vous pouvez ajouter les procédures pour obtenir les versions via l'interface web ou via API.
- 
+It also allows interaction via third party software or even via scripts. It is therefore very easy to customize vscan's web interface or to create your own (see the api documentation for authentication methods and use).
 
-### Le mode passif/passif
-Ce mode rend le serveur ainsi que l'agent passif. Le serveur sert de base de données de CVE/CPE, fait des correspondances et des remontées d'alerte sur les logiciels, systèmes d'exploitation ou matériels que vous lui demandez de suivre.
-Dans ce mode vous n'avez pas d'agent actif sur les machines clientes et aucune possibilité de remonter les versions des composants installés.
+# The agent
+
+The vscan agent is also an optional component, it is used to perform interactions with the machines managed by vscan.
+
+The API server must be installed for the agent to work.
+
+The agent is mandatory for active/active and active/passive operation.
+
+
+## vscan modes
+It can be activated in three different ways:
+
+1. Active/active mode
+2. Active/passive mode
+3. Passive/passive mode
+
+### The active/active mode
+The active/active mode has several possible uses. When this mode is set up, it allows the software installed on the machine in question to be reported, but also to perform a certain number of remote interactions on the machines.
+
+This mode allows, among other things, to create procedures according to the machines to set up mitigation in case of an attack or suspicion (isolation of the machine, deactivation of certain components, operation in degraded mode, etc.).
+
+It can also enable machine patching (disabled by default, in this mode you will have to activate it and in no case will the patches be deployed automatically).
+
+### Active/passive mode
+The active/passive mode is a mode where only the server is active, the agent tracks the OS, the software and the installed hardware but cannot intervene on the machine in question.
+It allows the server to maintain a list of software and their versions on given environments. You can add procedures to get the versions via the web interface or via API.
+
+
+### Passive/passive mode
+This mode makes the server and the agent passive. The server serves as a CVE/CPE database, makes matches and reports alerts on software, operating systems or hardware that you ask it to follow.
+In this mode you have no active agent on the client machines and no possibility to track the versions of the installed components.

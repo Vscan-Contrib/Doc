@@ -1,21 +1,21 @@
-# Environnements de développement
+# Development environments
 
-Vscan dispose de trois environnements de développement créer dans docker dans trois version différentes.
+Vscan has three development environments created in docker in three different versions.
 
-Les 3 versions actuellement supportées sont : 
+The 3 currently supported versions are :
 
 * Ubuntu 20.04
 * Centos 7
 * Centos 8
 
-Debian arrivera prochainement comme OpenSuse.
+Debian will arrive soon as OpenSuse.
 
-Pour créer l'environnement de développement il vous suffis de cloner le dépot gitlab de vscan et de lancer le script suivant : 
+To create the development environment you only need to clone the gitlab repository of vscan and run the following script:
 
-```bash 
-./start-dev-env 
+```bash
+./start-dev-env
 ```
-Les options vous serrons indiquées : 
+The options will be indicated to you:
 
 ```
 centos:8             Create and start Centos 8 vscan dev environnement.
@@ -26,6 +26,4 @@ ubuntu:18.04         Create and start Ubuntu 18.04 vscan dev environnement (DEPR
 ubuntu:20.04         Create and start Ubuntu 20.04 vscan dev environnement
 ```
 
-Vous arriverez donc dans un conteneur avec vscan installé, une interface web pour mysql ([sidu](https://sourceforge.net/projects/sidu/)) accessible via votre navigateur web a cette adresse : http://127.0.0.1:8080 .
-
- 
+You will arrive in a container with vscan installed, a web interface for mysql ([sidu](https://sourceforge.net/projects/sidu/)) accessible via your web browser at this address : http://127.0.0.1:8080 .

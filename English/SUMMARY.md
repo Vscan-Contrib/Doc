@@ -1,7 +1,7 @@
 # Summary
 
-* [Installation](Installation.md)
-* [Fonctions de vscan](Fonctions.md)
+* [Install](Installation.md)
+* [Functions of vscan](Fonctions.md)
 * [Process de développement](Developement.md)
 * [Environnement de développement](devenv.md)
 * [ Créer un module](vscan_modules.md)

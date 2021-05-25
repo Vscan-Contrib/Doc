@@ -1,1 +1,1 @@
-# Intégration continue
+# Continuous integration
